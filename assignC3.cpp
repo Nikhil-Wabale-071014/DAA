@@ -1,43 +1,52 @@
-/*Implement Subset Sum Problem.
-Statement Given a set of non-negative integers and a 
-value sum, the task is to check if there is a subset of the 
-given set whose sum is equal to the given sum.
-Input: set[] = {3, 34, 4, 12, 5, 2}, sum = 9 
-Output: True
-Input: set[] = {3, 34, 4, 12, 5, 2}, sum = 30 
-Output: False*/
+/*Implement Check if it is possible to transform one
+string to another.
+Statement Given two strings s1 and s2 (all letters in uppercase).
+Check if it is possible to convert s1 to s2 by performing following
+operations.
+1. Make some lowercase letters uppercase.
+2. Delete all the lowercase letters.
+Input: s1 = daBcd s2 = ABC Output: yes
+Input: s1 = argaju s2 = RAJ Output: yes*/
 #include<iostream>
+#include<string>
+#include<algorithm>
 using namespace std;
+int check(string s1,string s2){
+    char a[10],b[10]    ;
+    int count=0;
+    for(int i=0;i<s1.length();i++){
+       a[i]=tolower(s1[i]);
 
-int subset(int arr[],int n,int sum){
+       
+    }
     
-    bool flag=false;
-    for(int i=0;i<n;i++){
-        for(int j=i;j<n;j++){
-            n=arr[i]+arr[j];
-            if(n==sum){
-                flag=true;
+    for(int i=0;i<s2.length();i++){
+         b[i]=tolower(s2[i]);
+    }
+    for(int i=0;i<s1.length();i++){
+        for(int j=0;j<s1.length();j++){
+            if(a[i]==b[j]){
+                s1.erase(s1.begin() + i); 
+                count++;
+                break;
             }
         }
     }
-    if(flag==false){
-        cout<<"false";
-
-    } 
+    if(count==s2.length()){
+        cout<<"\nYES";
+    }
     else{
-        cout<<"true";
+        cout<<"\nNO";
     }
 
 }
 int main(){
-    int n,arr[10],sum;
-    cout<<"\nEnter array size : ";
-    cin>>n;
-    cout<<"\nEnter array elements : ";
-    for(int i=0;i<n;i++){
-       cin>>arr[i];
-    }
-    cout<<"Enter sum : ";
-    cin>>sum;
-    subset(arr,n,sum);
+    string s1,s2;
+    char a[10],b[10];
+    int count=0;
+    cout<<"\nEnter string 1 : ";
+    cin>>s1;
+    cout<<"\nEnter string 2 : ";
+    cin>>s2;
+    check(s1,s2);
 }
