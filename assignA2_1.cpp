@@ -8,7 +8,6 @@ using namespace std;
 
 int main() {
     int a[10], size,i,temp;
-    //bool flag = false;
 
     cout << "Enter array size (up to 10): ";
     cin >> size;
